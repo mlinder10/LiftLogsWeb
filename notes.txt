@@ -1,0 +1,14 @@
+Home
+  - image with title
+
+Features
+  - workout logging
+  - planning
+  - analytics
+  - learning
+
+Download
+  - button with link to app store
+
+Legal
+  - some bs
