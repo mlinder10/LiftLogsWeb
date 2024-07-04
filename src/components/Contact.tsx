@@ -46,6 +46,17 @@ export default function Contact() {
       <p className={styles.title}>Contact Us</p>
       <form className={styles.form}>
         <div className={styles.upper}>
+          <div className={`${styles.name} ${name.length > 0 && styles.active}`}>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <div className={styles.placeholder}>
+              <FaPerson />
+              <p>Name</p>
+            </div>
+          </div>
           <div
             className={`${styles.email} ${email.length > 0 && styles.active}`}
           >
@@ -57,17 +68,6 @@ export default function Contact() {
             <div className={styles.placeholder}>
               <FaEnvelope />
               <p>Email</p>
-            </div>
-          </div>
-          <div className={`${styles.name} ${name.length > 0 && styles.active}`}>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <div className={styles.placeholder}>
-              <FaPerson />
-              <p>Name</p>
             </div>
           </div>
         </div>

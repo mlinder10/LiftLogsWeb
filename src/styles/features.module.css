@@ -13,7 +13,6 @@
 }
 
 .learn-container {
-  border-radius: 1em;
   display: flex;
   justify-content: center;
   gap: 2em;
@@ -28,6 +27,13 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: 30%;
+
+    .section-description {
+      font-size: 1.1rem;
+      line-height: 1.8rem;
+      color: var(--secondary);
+    }
   }
 }
 
@@ -60,8 +66,14 @@
     flex-direction: column;
     gap: 1em;
     justify-content: center;
-    /* align-items: center; */
     padding-left: 4em;
+    max-width: 80%;
+
+    .section-description {
+      font-size: 1.1rem;
+      line-height: 1.8rem;
+      color: var(--secondary);
+    }
   }
 
   .plan-img-container {
