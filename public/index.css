@@ -29,16 +29,6 @@ body {
   background-color: var(--background-secondary);
 }
 
-/* ::-webkit-scrollbar {
-  background-color: var(--background);
-  width: 0.75em;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--background-secondary);
-  border-radius: 1em;
-} */
-
 a {
   font-weight: 500;
   color: var(--accent);

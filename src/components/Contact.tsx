@@ -83,7 +83,7 @@ export default function Contact() {
             <p>Message</p>
           </div>
         </div>
-        <button onClick={handleSend} disabled={statusMsg === "Sending..."}>
+        <button onClick={handleSend} disabled={statusMsg !== "Send"}>
           {statusMsg}
         </button>
       </form>

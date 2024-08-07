@@ -6,6 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lift Logs</title>
     <link rel="stylesheet" href="/index.css" />
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        padding: 1em 4em;
+        gap: 2em;
+        background-color: var(--background);
+
+        img {
+          aspect-ratio: 1;
+          width: 4em;
+        }
+
+        p {
+          font-size: 3rem;
+          font-weight: bold;
+        }
+      }
+
+      main {
+        margin-block: 8em;
+        margin-inline: auto;
+        padding: 3em;
+        width: 80%;
+        min-height: 100vh;
+        max-width: 800px;
+        background-color: var(--background);
+        box-shadow: 0 0 15px var(--background);
+      }
+
+      section {
+        min-height: auto;
+        margin-bottom: 4em;
+
+        h1,
+        h2 {
+          font-size: 1.6rem;
+          margin-bottom: 1em;
+          font-weight: 600;
+        }
+
+        h3 {
+          margin-left: 2em;
+          margin-bottom: 0.5em;
+        }
+
+        p {
+          margin-left: 2em;
+        }
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <img src="/logo.png" alt="" />
+      <p>Lift Logs</p>
+    </header>
+    <main>
+      <section>
+        <h1>Lift Logs Privacy Policy</h1>
+        <p>Some information about how we collect no data</p>
+      </section>
+      <section>
+        <h2>What Information Do We Collect?</h2>
+        <p>
+          Lift Logs stores all of your data on your device and none on our
+          servers. This means that we have absolutly no access to any of your
+          information.
+        </p>
+      </section>
+      <section>
+        <h2>What Apps Do We Integrate With?</h2>
+        <h3>Apple Health</h3>
+        <p>
+          Users can optionally link their Apple Health account in order to track
+          their Lift Logs-managed workouts in Apple Health.
+        </p>
+      </section>
+      <section>
+        <h2>Updates to Our Policy</h2>
+        <p>Last Updated: July 5, 2024</p>
+      </section>
+    </main>
+  </body>
 </html>
