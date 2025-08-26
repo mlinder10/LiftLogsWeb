@@ -1,25 +1,29 @@
-type User = {
-  id: string; // unique
-  email: string; // unique
-  username: string; // unique
-  password: string;
-  createdAt: Date;
-  color: string;
+import { InferSelectModel } from "drizzle-orm";
+import { users } from "./db";
+
+export type User = InferSelectModel<typeof users>;
+
+//
+
+type Split = {
+  id: string;
+};
+
+type Workout = {
+  id: string;
 };
 
 //
 
-type Split = {};
-
-type Workout = {};
-
-//
-
-type CompletedWorkout = {};
+type CompletedWorkout = {
+  id: string;
+};
 
 //
 
-type ListExercise = {};
+type ListExercise = {
+  id: string;
+};
 
 //
 
@@ -47,6 +51,26 @@ type SharedItem = {
 };
 
 // Endpoints
+
+export type SessionResponse = {
+  session?: Session;
+  error?: APIError;
+};
+
+export type Session = {
+  userId: string;
+  email: string;
+  username: string;
+  color: string;
+  createdAt: Date;
+};
+
+export type APIError =
+  | "invalidCredentials"
+  | "emailInUse"
+  | "usernameInUse"
+  | "unknown"
+  | "missingData";
 
 function GET_usersByUsernames(usernames: string[]): User[] {
   return [];
