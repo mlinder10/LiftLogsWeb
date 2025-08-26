@@ -70,5 +70,5 @@ export const users = sqliteTable("users", {
   username: text("username").unique().notNull(),
   color: text("color").notNull(),
   password: text("password").notNull(),
-  createdAt: date("created_at").default(SQL_NOW),
+  createdAt: date("created_at").notNull().default(SQL_NOW),
 });
