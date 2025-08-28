@@ -14,7 +14,11 @@ export async function POST(req: NextRequest) {
   const isValidPassword = await verifyPassword(password, user.password);
   if (!isValidPassword) return buildErrorResponse("invalidCredentials");
 
-  return buildSessionResponse({ ...user, userId: user.id });
+  return buildSessionResponse({
+    ...user,
+    userId: user.id,
+    createdAt: user.createdAt.toISOString(),
+  });
 }
 
 async function fetchUserByIdentifier(identifier: string) {

@@ -62,8 +62,11 @@ export type Session = {
   email: string;
   username: string;
   color: string;
-  createdAt: Date;
+  createdAt: string;
+  subscription: Subscription;
 };
+
+export type Subscription = "unsubscribed" | "trial" | "monthly" | "yearly";
 
 export type APIError =
   | "invalidCredentials"

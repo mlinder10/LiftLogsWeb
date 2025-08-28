@@ -1,5 +1,6 @@
+import { Subscription } from "@/types";
 import { sql } from "drizzle-orm";
-import { customType, index, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { customType, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 // Extensions ---------------------------------------------------------------
 
@@ -71,4 +72,17 @@ export const users = sqliteTable("users", {
   color: text("color").notNull(),
   password: text("password").notNull(),
   createdAt: date("created_at").notNull().default(SQL_NOW),
+  subscription: json<Subscription>("subscription").notNull(),
+});
+
+type SharedObject = "split" | "workout" | "workoutLog";
+
+export const sharedObjects = sqliteTable("shared_objects", {
+  id: text("id").primaryKey().default(SQL_UUID).notNull(),
+  object: text("object").notNull(),
+  listExercises: text("list_exercises").notNull(),
+  type: json<SharedObject>("type").notNull(),
+  createdAt: date("created_at").notNull().default(SQL_NOW),
+  owner: text("owner").notNull(),
+  sharedWith: json<string[]>("shared_with").notNull(),
 });

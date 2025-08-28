@@ -17,3 +17,12 @@ export async function verifyPassword(password: string, hash: string) {
   const passwordHash = await hashPassword(password);
   return passwordHash === hash;
 }
+
+export function randomHexColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}

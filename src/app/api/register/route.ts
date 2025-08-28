@@ -1,6 +1,6 @@
 import { db, users } from "@/db";
 import { buildErrorResponse, buildSessionResponse } from "@/lib/api";
-import { hashPassword } from "@/lib/utils";
+import { hashPassword, randomHexColor } from "@/lib/utils";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -11,10 +11,20 @@ export async function POST(req: NextRequest) {
   const hashedPassword = await hashPassword(password);
   const [user] = await db
     .insert(users)
-    .values({ email, username, password: hashedPassword, color: "#000000" })
+    .values({
+      email,
+      username,
+      password: hashedPassword,
+      color: randomHexColor(),
+      subscription: "unsubscribed",
+    })
     .returning();
 
   if (!user) return buildErrorResponse("invalidCredentials");
 
-  return buildSessionResponse({ ...user, userId: user.id });
+  return buildSessionResponse({
+    ...user,
+    userId: user.id,
+    createdAt: user.createdAt.toISOString(),
+  });
 }
