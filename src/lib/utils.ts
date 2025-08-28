@@ -18,11 +18,12 @@ export async function verifyPassword(password: string, hash: string) {
   return passwordHash === hash;
 }
 
+const HEX_CHARS = "0123456789ABCDEF";
+
 export function randomHexColor() {
-  const letters = "0123456789ABCDEF";
   let color = "#";
   for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+    color += HEX_CHARS[Math.floor(Math.random() * 16)];
   }
   return color;
 }

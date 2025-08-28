@@ -3,57 +3,14 @@ import { users } from "./db";
 
 export type User = InferSelectModel<typeof users>;
 
-//
-
-type Split = {
-  id: string;
-};
-
-type Workout = {
-  id: string;
-};
-
-//
-
-type CompletedWorkout = {
-  id: string;
-};
-
-//
-
-type ListExercise = {
-  id: string;
-};
-
-//
-
-// DB Record
-type SharedItemRow = {
-  id: string;
-  ownerId: string;
-  sharedWith: string[];
-  claimedBy: string[];
-  sharedAt: Date;
-  splitId: string | null;
-  workoutId: string | null;
-  completedWorkoutId: string | null;
-  listExerciseId: string | null;
-};
-
-type SharedItem = {
-  ownerUsername: string;
-  sharedAt: Date;
-  split: Split | null;
-  workout: Workout | null;
-  completedWorkout: CompletedWorkout | null;
-  listExercise: ListExercise | null;
-  listExercises: ListExercise[];
-};
+export type SharedObject = "split" | "workout" | "workoutLog";
 
 // Endpoints
 
-export type SessionResponse = {
-  session?: Session;
+export type SessionResponse = APIResponse<Session>;
+
+export type APIResponse<T> = {
+  data?: T;
   error?: APIError;
 };
 
@@ -73,26 +30,8 @@ export type APIError =
   | "emailInUse"
   | "usernameInUse"
   | "unknown"
-  | "missingData";
-
-function GET_usersByUsernames(usernames: string[]): User[] {
-  return [];
-}
-
-function GET_sharedItems(itemId: string): SharedItem[] {
-  // add to claimedBy
-  return [];
-}
-
-function POST_sharedItem(
-  ownerId: string,
-  userIds: string[],
-  split: Split | null,
-  workout: Workout | null,
-  completedWorkout: CompletedWorkout | null,
-  listExercise: ListExercise | null
-) {}
-
-function GET_mySharedItems(userId: string): SharedItem[] {
-  return [];
-}
+  | "missingData"
+  | "invalidData"
+  | "unauthorized"
+  | "dbError"
+  | "notFound";
